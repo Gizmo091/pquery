@@ -1,11 +1,12 @@
 {
-   "name": "madbuild3r/pquery",
+   "name": "zmog/pquery",
    "type": "library",
    "description": "A jQuery like html dom parser written in php. This fork add fixes for php 8",
    "keywords": ["php", "dom", "ganon"],
    "license": "LGPL-2.1",
    "authors": [
-       { "name": "Todd Burry", "email": "todd@vanillaforums.com", "role": "Developer" }
+       { "name": "Todd Burry", "email": "todd@vanillaforums.com", "role": "Developer" },
+      { "name": "Mathieu Vedie", "email": "mathieu@vedie.fr", "role": "Developer" }
    ],
    "autoload": {
       "classmap": [
@@ -20,7 +21,7 @@
       ]
    },
    "require": {
-       "php": ">=5.3.0"
+       "php": ">=8.0.0"
    },
    "require-dev": {
        "htmlawed/htmlawed": "dev-master"
