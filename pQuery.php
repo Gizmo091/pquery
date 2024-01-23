@@ -78,8 +78,7 @@ class pQuery implements ArrayAccess, IteratorAggregate, IQuery {
      *
      * @return int Returns the count of matched elements.
      */
-    #[\ReturnTypeWillChange]
-    public function count() {
+    public function count():int {
         return count($this->nodes);
     }
 
@@ -95,8 +94,7 @@ class pQuery implements ArrayAccess, IteratorAggregate, IQuery {
 //        return $formatter->format($dom);
 //    }
 
-    #[\ReturnTypeWillChange]
-    public function getIterator() {
+    public function getIterator() :\Traversable {
         return new ArrayIterator($this->nodes);
     }
 
@@ -120,18 +118,15 @@ class pQuery implements ArrayAccess, IteratorAggregate, IQuery {
         return $this;
     }
 
-    #[\ReturnTypeWillChange]
-    public function offsetExists($offset) {
+    public function offsetExists($offset) :bool {
         return isset($this->nodes[$offset]);
     }
 
-    #[\ReturnTypeWillChange]
-    public function offsetGet($offset) {
+    public function offsetGet($offset) :mixed {
         return isset($this->nodes[$offset]) ? $this->nodes[$offset] : null;
     }
 
-    #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value) {
+    public function offsetSet($offset, $value):void {
 
         if (is_null($offset) || !isset($this->nodes[$offset])) {
             throw new \BadMethodCallException("You are not allowed to add new nodes to the pQuery object.");
@@ -140,8 +135,7 @@ class pQuery implements ArrayAccess, IteratorAggregate, IQuery {
         }
     }
 
-    #[\ReturnTypeWillChange]
-    public function offsetUnset($offset) {
+    public function offsetUnset($offset):void {
         if (isset($this->nodes[$offset])) {
             $this->nodes[$offset]->remove();
             unset($this->nodes[$offset]);
